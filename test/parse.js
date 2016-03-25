@@ -55,8 +55,8 @@ test('parse: certPath no error', (t) => {
     
     let result = docker.parse(config);
    
-    t.deepEqual(Object.keys(result), ['host', 'port', 'ca', 'key', 'cert'], 'results should containtain properties'); 
-    t.equal(result.ca, 'hello', 'certificates should be read'); 
+    t.deepEqual(Object.keys(result), ['host', 'port', 'ca', 'key', 'cert'], 'results should containtain properties');
+    t.equal(result.ca, 'hello', 'certificates should be read');
 
     ['ca', 'key', 'cert'].forEach((name) => {
         fs.unlinkSync(path.join(dir, `${name}.pem`), 'hello');
