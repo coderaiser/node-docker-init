@@ -1,5 +1,9 @@
 'use strict';
 
+let fs          = require('fs');
+let path        = require('path');
+let os          = require('os');
+
 let docker      = require('..');
 let test        = require('tape');
 let tryCatch    = require('try-catch');
@@ -20,7 +24,7 @@ test('parse: socketPath', (t) => {
     t.end();
 });
 
-test('parse: certPath', (t) => {
+test('parse: certPath error', (t) => {
     let fn = () => docker.parse(config);
     let config = {
         certPath: 'hello',
@@ -32,6 +36,33 @@ test('parse: certPath', (t) => {
     });
     t.ok(error, 'should be read error');
     t.equal(error.code, 'ENOENT', 'no entry error');
+    
+    t.end();
+});
+
+test('parse: certPath no error', (t) => {
+    let name    = String(Math.random());
+    let dir     = path.join(os.tmpdir(), name);
+    let config  = {
+        certPath: dir,
+        host: '192.168.99.100:2376'
+    };
+    
+    fs.mkdir(dir);
+    ['ca', 'key', 'cert'].forEach((name) => {
+        fs.writeFileSync(path.join(dir, `${name}.pem`), 'hello');
+    });
+    
+    let result = docker.parse(config);
+   
+    t.deepEqual(Object.keys(result), ['host', 'port', 'ca', 'key', 'cert'], 'results should containtain properties'); 
+    t.equal(result.ca, 'hello', 'certificates should be read'); 
+
+    ['ca', 'key', 'cert'].forEach((name) => {
+        fs.unlinkSync(path.join(dir, `${name}.pem`), 'hello');
+    });
+    
+    fs.rmdir(dir);
     
     t.end();
 });
