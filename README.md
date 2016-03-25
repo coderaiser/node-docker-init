@@ -1,6 +1,6 @@
 # Docker Init[![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
-Init [docker](https://github.com/apocas/dockerode "Dockerode") with parameters.
+Init [docker](https://docker.io "Docker") with [dockerode](https://github.com/apocas/dockerode "Dockerode") parameters.
 
 ## Install
 
