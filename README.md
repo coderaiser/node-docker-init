@@ -10,9 +10,9 @@ npm i docker-init --save
 
 ## How to use?
 `docker init` takes options with 3 properties:
-- `socketPath` - `/var/run/docker.sock` by default
-- `host` - host of docker machine, could be used `$DOCKER_HOST` or any host in format `<ip>:<port>`, e.g. `192.168.99.100:2376`.
-- `certPath` - path to read certificates (`key.pem`, `ca.pem`, `cert.pem`) from, could be used `$DOCKER_CERT_PATH`.
+- **socketPath** - `/var/run/docker.sock` by default
+- **host** - host of docker machine, could be used `$DOCKER_HOST` or any host in format `<ip>:<port>`, e.g. `192.168.99.100:2376`.
+- **certPath** - path to read certificates (`key.pem`, `ca.pem`, `cert.pem`) from, could be used `$DOCKER_CERT_PATH`.
 
 ```js
 let dockerInit = require('docker-init');
