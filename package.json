@@ -1,6 +1,6 @@
 {
   "name": "docker-init",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "init docker with parameters",
   "main": "lib/docker-init.js",
   "scripts": {
