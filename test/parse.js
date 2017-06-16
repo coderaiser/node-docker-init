@@ -1,12 +1,12 @@
 'use strict';
 
-let fs          = require('fs');
-let path        = require('path');
-let os          = require('os');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
 
-let docker      = require('..');
-let test        = require('tape');
-let tryCatch    = require('try-catch');
+const docker = require('..');
+const test = require('tape');
+const tryCatch = require('try-catch');
 
 test('parse: no args', (t) => {
     t.notOk(docker.parse(), 'should return nothing');
@@ -14,24 +14,24 @@ test('parse: no args', (t) => {
 });
 
 test('parse: socketPath', (t) => {
-    let config = {
+    const config = {
         socketPath: '/var/run/docker.sock'
     };
     
-    let result = docker.parse(config);
+    const result = docker.parse(config);
     
     t.deepEqual(config, result, 'should return object with socketPath');
     t.end();
 });
 
 test('parse: certPath error', (t) => {
-    let fn = () => docker.parse(config);
-    let config = {
+    const fn = () => docker.parse(config);
+    const config = {
         certPath: 'hello',
         host: '192.168.99.100:2376'
     };
     
-    let error = tryCatch(() => {
+    const error = tryCatch(() => {
         fn();
     });
     t.ok(error, 'should be read error');
@@ -41,9 +41,9 @@ test('parse: certPath error', (t) => {
 });
 
 test('parse: certPath no error', (t) => {
-    let name    = String(Math.random());
-    let dir     = path.join(os.tmpdir(), name);
-    let config  = {
+    const name = String(Math.random());
+    const dir = path.join(os.tmpdir(), name);
+    const config = {
         certPath: dir,
         host: '192.168.99.100:2376'
     };
@@ -53,11 +53,11 @@ test('parse: certPath no error', (t) => {
         fs.writeFileSync(path.join(dir, `${name}.pem`), 'hello');
     });
     
-    let result = docker.parse(config);
+    const result = docker.parse(config);
    
     t.deepEqual(Object.keys(result), ['host', 'port', 'ca', 'key', 'cert'], 'results should containtain properties');
     t.equal(result.ca, 'hello', 'certificates should be read');
-
+    
     ['ca', 'key', 'cert'].forEach((name) => {
         fs.unlinkSync(path.join(dir, `${name}.pem`), 'hello');
     });
