@@ -62,7 +62,7 @@ test('parse: certPath no error', (t) => {
         fs.unlinkSync(path.join(dir, `${name}.pem`), 'hello');
     });
     
-    fs.rmdir(dir);
+    fs.rmdirSync(dir);
     
     t.end();
 });
