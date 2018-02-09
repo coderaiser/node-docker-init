@@ -31,10 +31,8 @@ test('parse: certPath error', (t) => {
         host: '192.168.99.100:2376'
     };
     
-    const error = tryCatch(() => {
-        fn();
-    });
-    t.ok(error, 'should be read error');
+    const [error] = tryCatch(fn);
+    
     t.equal(error.code, 'ENOENT', 'no entry error');
     
     t.end();
