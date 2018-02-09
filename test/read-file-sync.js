@@ -31,7 +31,8 @@ test('readFileSync: should convert path with "~" in certPath', (t) => {
     const name = String(Math.random());
     const fn = () => docker.readFileSync('~/hello', name);
     
-    const error = tryCatch(fn);
+    const [error] = tryCatch(fn);
+    
     t.ok(error, 'should be error');
     t.notOk(error.message.includes('~'), 'should not contain "~"');
     t.end();
@@ -56,3 +57,4 @@ test('readFileSync: fs.readFileSync', (t) => {
     t.ok(spy.calledWith('hello/world.pem'), 'fs.readFileSync should have been called');
     t.end();
 });
+
