@@ -46,7 +46,8 @@ test('parse: certPath no error', (t) => {
         host: '192.168.99.100:2376'
     };
     
-    fs.mkdir(dir);
+    fs.mkdirSync(dir);
+    
     ['ca', 'key', 'cert'].forEach((name) => {
         fs.writeFileSync(path.join(dir, `${name}.pem`), 'hello');
     });
