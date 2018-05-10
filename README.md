@@ -35,11 +35,11 @@ MIT
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/docker-init.svg?style=flat
 [BuildStatusIMGURL]:        https://img.shields.io/travis/coderaiser/node-docker-init/master.svg?style=flat
-[DependencyStatusIMGURL]:   https://img.shields.io/gemnasium/coderaiser/node-docker-init.svg?style=flat
+[DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/node-docker-init.svg?style=flat
 [LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [NPMURL]:                   https://npmjs.org/package/docker-init "npm"
 [BuildStatusURL]:           https://travis-ci.org/coderaiser/node-docker-init  "Build Status"
-[DependencyStatusURL]:      https://gemnasium.com/coderaiser/node-docker-init "Dependency Status"
+[DependencyStatusURL]:      https://david-dm.org/coderaiser/node-docker-init "Dependency Status"
 [LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
 [CoverageURL]:              https://coveralls.io/github/coderaiser/node-docker-init?branch=master
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/node-docker-init/badge.svg?branch=master&service=github
