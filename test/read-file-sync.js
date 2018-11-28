@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const docker = require('..');
 const test = require('tape');
-const sinon = require('sinon');
+const stub = require('@cloudcmd/stub');
 const tryCatch = require('try-catch');
 
 test('readFileSync: no arguments', (t) => {
@@ -40,21 +40,28 @@ test('readFileSync: should convert path with "~" in certPath', (t) => {
 
 test('readFileSync: path.join', (t) => {
     const fn = () => docker.readFileSync('hello', 'world');
-    const spy = sinon.spy(path, 'join');
+    const {join} = path;
+    const joinStub = stub();
+    
+    path.join = joinStub;
     
     tryCatch(fn);
+    path.join = join;
     
-    t.ok(spy.calledWith('hello', 'world'), 'path.join should have been called');
+    t.ok(joinStub.calledWith('hello', 'world'), 'path.join should have been called');
     t.end();
 });
 
 test('readFileSync: fs.readFileSync', (t) => {
-    const fn = () => docker.readFileSync('hello', 'world');
-    const spy = sinon.spy(fs, 'readFileSync');
+    const {readFileSync} = fs;
+    const readFileSyncStub = stub();
     
-    tryCatch(fn);
+    fs.readFileSync = readFileSyncStub;
     
-    t.ok(spy.calledWith('hello/world.pem'), 'fs.readFileSync should have been called');
+    docker.readFileSync('hello', 'world');
+    
+    fs.readFileSync = readFileSync;
+    t.ok(readFileSyncStub.calledWith('hello/world.pem', 'utf8'), 'fs.readFileSync should have been called');
     t.end();
 });
 
