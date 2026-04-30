@@ -40,6 +40,6 @@
   },
   "dependencies": {
     "dockerode": "^5.0.0",
-    "untildify": "^3.0.2"
+    "untildify": "^6.0.0"
   }
 }
