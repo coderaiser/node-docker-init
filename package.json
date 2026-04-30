@@ -28,7 +28,7 @@
   "homepage": "https://github.com/coderaiser/node-docker-init",
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "eslint": "^5.9.0",
+    "eslint": "^10.2.1",
     "eslint-plugin-putout": "^31.1.2",
     "redrun": "^7.0.3",
     "superc8": "^12.3.1",
