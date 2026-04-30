@@ -1,19 +1,22 @@
 {
   "name": "docker-init",
   "version": "1.0.1",
+  "type": "commonjs",
   "description": "init docker with parameters",
   "main": "lib/docker-init.js",
   "scripts": {
-    "test": "tape test/*.js",
-    "lint": "redrun lint:*",
-    "lint:lib": "eslint lib",
-    "lint:test": "eslint -c ./.eslintrc.test test",
-    "report": "nyc report --reporter=text-lcov | coveralls",
-    "coverage": "nyc npm test"
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/node-docker-init.git"
+    "url": "git+https://github.com/coderaiser/node-docker-init.git"
   },
   "keywords": [
     "docker",
@@ -37,7 +40,7 @@
     "try-catch": "^4.0.9"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=22"
   },
   "dependencies": {
     "dockerode": "^5.0.0",
