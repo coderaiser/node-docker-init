@@ -8,7 +8,7 @@ test('docker-init: return', (t) => {
 
 test('docker-init: return: host', (t) => {
     const {host} = dockerInit().modem;
-
+    
     t.equal(host, 'localhost');
     t.end();
 });
