@@ -1,9 +1,7 @@
-'use strict';
-
-const {test} = require('supertape');
-const docker = require('..');
+import {test} from 'supertape';
+import {dockerInit} from '../lib/docker-init.js';
 
 test('initDocker: return', (t) => {
-    t.ok(docker(), 'should return object');
+    t.ok(dockerInit(), 'should return object');
     t.end();
 });

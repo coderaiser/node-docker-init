@@ -1,15 +1,12 @@
-'use strict';
-
-const fs = require('node:fs');
-const path = require('node:path');
-const os = require('node:os');
-
-const {test} = require('supertape');
-const {tryCatch} = require('try-catch');
-const docker = require('..');
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import {test} from 'supertape';
+import {tryCatch} from 'try-catch';
+import {parse} from '../lib/docker-init.js';
 
 test('parse: no args', (t) => {
-    t.notOk(docker.parse(), 'should return nothing');
+    t.notOk(parse(), 'should return nothing');
     t.end();
 });
 
@@ -18,7 +15,7 @@ test('parse: socketPath', (t) => {
         socketPath: '/var/run/docker.sock',
     };
     
-    const result = docker.parse(config);
+    const result = parse(config);
     
     t.deepEqual(config, result, 'should return object with socketPath');
     t.end();
@@ -30,7 +27,7 @@ test('parse: certPath error', (t) => {
         host: '192.168.99.100:2376',
     };
     
-    const [error] = tryCatch(docker.parse, config);
+    const [error] = tryCatch(parse, config);
     
     t.equal(error.code, 'ENOENT', 'no entry error');
     t.end();
@@ -51,7 +48,7 @@ test('parse: certPath no error', (t) => {
         fs.writeFileSync(path.join(dir, `${name}.pem`), 'hello');
     });
     
-    const result = docker.parse(config);
+    const result = parse(config);
     
     t.deepEqual(Object.keys(result), [
         'host',
@@ -85,7 +82,7 @@ test('parse: certPath no error: ca', (t) => {
         fs.writeFileSync(path.join(dir, `${name}.pem`), 'hello');
     });
     
-    const result = docker.parse(config);
+    const result = parse(config);
     
     t.equal(result.ca, 'hello', 'certificates should be read');
     

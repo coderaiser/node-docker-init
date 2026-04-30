@@ -1,28 +1,25 @@
-'use strict';
-
-const path = require('node:path');
-const fs = require('node:fs');
-
-const {test, stub} = require('supertape');
-const {tryCatch} = require('try-catch');
-const docker = require('..');
+import path from 'node:path';
+import fs from 'node:fs';
+import {test, stub} from 'supertape';
+import {tryCatch} from 'try-catch';
+import {readCert} from '../lib/docker-init.js';
 
 test('readFileSync: no arguments', (t) => {
-    const [error] = tryCatch(docker.readFileSync);
+    const [error] = tryCatch(readCert);
     
     t.equal(error.message, 'certPath should be string!', 'should throw when no certPath');
     t.end();
 });
 
 test('readFileSync: no name', (t) => {
-    const [error] = tryCatch(docker.readFileSync, 'hello');
+    const [error] = tryCatch(readCert, 'hello');
     
     t.equal(error.message, 'name should be string!', 'should throw when no name');
     t.end();
 });
 
 test('readFileSync: should throw when no file', (t) => {
-    const [error] = tryCatch(docker.readFileSync, 'hello', 'world');
+    const [error] = tryCatch(readCert, 'hello', 'world');
     
     t.equal(error.message, `ENOENT: no such file or directory, open 'hello/world.pem'`, 'should throw when no such file');
     t.end();
@@ -30,7 +27,7 @@ test('readFileSync: should throw when no file', (t) => {
 
 test('readFileSync: should convert path with "~" in certPath', (t) => {
     const name = String(Math.random());
-    const [error] = tryCatch(docker.readFileSync, '~/hello', name);
+    const [error] = tryCatch(readCert, '~/hello', name);
     
     t.notOk(error.message.includes('~'), 'should not contain "~"');
     t.end();
@@ -42,7 +39,7 @@ test('readFileSync: path.join', (t) => {
     
     path.join = joinStub;
     
-    tryCatch(docker.readFileSync, 'hello', 'world');
+    tryCatch(readCert, 'hello', 'world');
     path.join = join;
     
     t.calledWith(joinStub, ['hello', 'world'], 'path.join should have been called');
@@ -55,7 +52,7 @@ test('readFileSync: fs.readFileSync', (t) => {
     
     fs.readFileSync = readFileSyncStub;
     
-    docker.readFileSync('hello', 'world');
+    readCert('hello', 'world');
     
     fs.readFileSync = readFileSync;
     

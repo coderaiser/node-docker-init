@@ -26,7 +26,7 @@ npm i docker-init --save
 - **certPath** - path to read certificates (`key.pem`, `ca.pem`, `cert.pem`) from, could be used `$DOCKER_CERT_PATH`.
 
 ```js
-const dockerInit = require('docker-init');
+import {dockerInit} from 'docker-init';
 
 // on local linux
 docker = dockerInit();
