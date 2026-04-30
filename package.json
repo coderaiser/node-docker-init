@@ -32,6 +32,7 @@
     "eslint-plugin-node": "^8.0.0",
     "redrun": "^7.0.3",
     "superc8": "^12.3.1",
+    "supertape": "^12.11.0",
     "try-catch": "^2.0.0"
   },
   "engines": {
