@@ -1,5 +1,14 @@
 # Docker Init [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
+[NPMIMGURL]: https://img.shields.io/npm/v/docker-init.svg?style=flat
+[NPMURL]: https://npmjs.org/package/docker-init "npm"
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
+[BuildStatusURL]: https://github.com/coderaiser/node-docker-init/actions?query=workflow%3A%22Node+CI%22 "Build Status"
+[BuildStatusIMGURL]: https://github.com/coderaiser/node-docker-init/workflows/Node%20CI/badge.svg
+[CoverageURL]: https://coveralls.io/github/coderaiser/node-docker-init?branch=master
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/node-docker-init/badge.svg?branch=master&service=github
+
 Init [docker](https://docker.com "Docker") with [dockerode](https://github.com/apocas/dockerode "Dockerode") parameters.
 
 ## Install
@@ -33,12 +42,3 @@ docker = dockerInit({
 ## License
 
 MIT
-
-[NPMIMGURL]: https://img.shields.io/npm/v/docker-init.svg?style=flat
-[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/node-docker-init/master.svg?style=flat
-[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[NPMURL]: https://npmjs.org/package/docker-init "npm"
-[BuildStatusURL]: https://travis-ci.org/coderaiser/node-docker-init "Build Status"
-[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
-[CoverageURL]: https://coveralls.io/github/coderaiser/node-docker-init?branch=master
-[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/node-docker-init/badge.svg?branch=master&service=github
