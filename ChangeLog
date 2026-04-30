@@ -1,3 +1,33 @@
+2026.04.30, v2.0.0
+
+feature:
+- f5aae25 docker-init: migrate to ESM
+- 4d789c4 docker-init: madrun v13.0.1
+- a5d2428 docker-init: untildify v6.0.0
+- 3a39460 docker-init: try-catch v4.0.9
+- 7259fe9 docker-init: redrun v13.0.4
+- c513bd8 docker-init: eslint v10.2.1
+- aad4147 docker-init: dockerode v5.0.0
+- 54ec2b6 docker-init: eslint-plugin-putout v31.1.2
+- b103e5c docker-init: supertape v12.11.0
+- b9e5d98 docker-init: superc8 v12.3.1
+- 45ddf6f (package) nyc v13.1.0
+- c02a24c (package) sinon, sinon-called-with-diff -> @cloudcmd/stub
+- d78f3ac (package) sinon, sinon-called-with-diff -> @cloudcmd/stub
+- 0e8f365 (package) nyc v12.0.2
+- a05b2ed (package) sinon v6.0.0
+- 5f42e37 (package) sinon v5.0.3
+- 96ceb51 (package) try-catch v2.0.0
+- 47a5753 (package) sinon v4.0.0
+- ac10bd6 (package) coveralls v3.0.0
+- 1215f31 (package) sinon v3.0.0
+- c4ea4ce (package) nyc v11.0.2
+- a91cc31 (package) sinon v2.1.0
+- 89adda5 (package) nyc v10.0.0
+- 5c98b0a (package) nyc v9.0.1
+- acfd63f (package) nyc v8.1.0
+- 657b3ad (package) nyc v7.0.0
+
 2016.05.10, v1.0.1
 
 feature:
