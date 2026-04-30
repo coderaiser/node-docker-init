@@ -33,7 +33,7 @@
     "redrun": "^13.0.4",
     "superc8": "^12.3.1",
     "supertape": "^12.11.0",
-    "try-catch": "^2.0.0"
+    "try-catch": "^4.0.9"
   },
   "engines": {
     "node": ">=4"
